@@ -28,9 +28,7 @@ PRODUCT_PACKAGE_OVERLAYS += device/rockchip/rk3288/overlay
 
 TARGET_BOARD_PLATFORM := rk3288
 TARGET_BOARD_PLATFORM_GPU := mali-t760
-#TARGET_BOARD_INFO_FILE := device/rockchip/rk3288/board-info.txt
 
-#TARGET_BUILD_JAVA_SUPPORT_LEVEL := platform
 
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
@@ -54,19 +52,7 @@ RADICAL_UPDATE_CERT := $(TARGET_RELEASETOOLS_EXTENSIONS)/radical_update/certs/ra
 # Copy RK3288 own init.rc file
 TARGET_PROVIDES_INIT_RC := true
 
-ifneq ($(filter %box, $(TARGET_PRODUCT)), )
-TARGET_BOARD_PLATFORM_PRODUCT ?= box
-else
 TARGET_BOARD_PLATFORM_PRODUCT ?= tablet
-endif
-#######for target product ########
-ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), box)
-DEVICE_PACKAGE_OVERLAYS += device/rockchip/rk3288/overlay_screenoff
-
-PRODUCT_PROPERTY_OVERRIDES += \
-        ro.target.product=box
-else
   PRODUCT_PROPERTY_OVERRIDES += \
         ro.target.product=tablet
-endif
 
