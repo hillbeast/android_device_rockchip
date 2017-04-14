@@ -20,14 +20,13 @@
 TARGET_NO_KERNEL ?= false
 TARGET_PREBUILT_KERNEL ?= device/rockchip/rk3288/kernel
 ifneq ($(TARGET_PRODUCT),rk3188)
- TARGET_PREBUILT_RESOURCE ?= kernel/resource.img
+  TARGET_PREBUILT_RESOURCE ?= kernel/resource.img
 endif
 
 TARGET_BOARD_PLATFORM ?= rk3288
 TARGET_BOARD_HARDWARE ?= rk30board
 
 # CPU feature configration
-ifeq ($(strip $(TARGET_BOARD_HARDWARE)), rk30board)
 TARGET_ARCH ?= arm
 TARGET_ARCH_VARIANT ?= armv7-a-neon
 ARCH_ARM_HAVE_TLS_REGISTER ?= true
@@ -35,13 +34,6 @@ TARGET_CPU_ABI ?= armeabi-v7a
 TARGET_CPU_ABI2 ?= armeabi
 TARGET_CPU_VARIANT ?= cortex-a9
 TARGET_CPU_SMP ?= true
-else
-TARGET_ARCH ?= x86
-TARGET_ARCH_VARIANT ?= silvermont
-TARGET_CPU_ABI ?= x86
-TARGET_CPU_ABI2 ?= 
-TARGET_CPU_SMP ?= true
-endif
 
 
 # GPU configration
@@ -53,22 +45,8 @@ TARGET_DISABLE_TRIPLE_BUFFERING ?= false
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK ?= false
 
 DEVICE_HAVE_LIBRKVPU ?= true
-
-ifeq ($(strip $(TARGET_BOARD_PLATFORM_GPU)), mali400)
-BOARD_EGL_CFG := vendor/rockchip/common/gpu/Mali400/lib/arm/egl.cfg
-endif
-
-ifeq ($(strip $(TARGET_BOARD_PLATFORM_GPU)), mali450)
-BOARD_EGL_CFG := vendor/rockchip/common/gpu/Mali450/lib/x86/egl.cfg
-endif
-
-ifeq ($(strip $(TARGET_BOARD_PLATFORM_GPU)), mali-t760)
 BOARD_EGL_CFG := vendor/rockchip/common/gpu/MaliT760/etc/egl.cfg
-endif
 
-ifeq ($(strip $(TARGET_BOARD_PLATFORM_GPU)), PVR540)
-BOARD_EGL_CFG ?= vendor/rockchip/common/gpu/PVR540/egl.cfg
-endif
 
 TARGET_BOOTLOADER_BOARD_NAME ?= rk30sdk
 TARGET_NO_BOOTLOADER ?= true
@@ -99,55 +77,54 @@ TARGET_USES_LOGD ?= true
 # Sepolicy
 BOARD_SEPOLICY_DIRS ?= device/rockchip/common/sepolicy
 BOARD_SEPOLICY_REPLACE := \
-    domain.te
+	domain.te
 BOARD_SEPOLICY_UNION ?=     \
-        akmd.te             \
-        app.te              \
-        device.te           \
-        bluetooth.te        \
-        drmserver.te        \
-        file.te             \
-        file_contexts       \
-        genfs_contexts      \
-        gpsd.te             \
-        init.te             \
-        kernel.te           \
-        mediaserver.te      \
-        netd.te             \
-        platform_app.te     \
-        recovery.te         \
-        rild.te             \
-        shell.te            \
-        surfaceflinger.te   \
-        system_app.te       \
-        system_server.te    \
-        uncrypt.te          \
-        vold.te             \
-        apk_logfs.te        \
-        crashlogd.te        \
-        dhcp.te             \
-        fg_conf.te          \
-        fmd.te              \
-        bootanim.te         \
-	 init_shell.te       \
-	 install_recovery.te \
-	 keystore.te         \
-	 lbsd.te             \
-	 logconfig.te        \
-	 nvm.te              \
-	 pekallfmrserver.te  \
-	 rpc.te              \
-	 service_contexts    \
-	 servicemanager.te   \
-	 setup_fs_nvm.te     \
-	 ueventd.te          \
-	 untrusted_app.te    \
-	 wpa.te              \
-	 zygote.te           \
-         rtl_wpa.te          \
-         esp_wpa.te          \
-         rftest.te
-
+	akmd.te             \
+	app.te              \
+	device.te           \
+	bluetooth.te        \
+	drmserver.te        \
+	file.te             \
+	file_contexts       \
+	genfs_contexts      \
+	gpsd.te             \
+	init.te             \
+	kernel.te           \
+	mediaserver.te      \
+	netd.te             \
+	platform_app.te     \
+	recovery.te         \
+	rild.te             \
+	shell.te            \
+	surfaceflinger.te   \
+	system_app.te       \
+	system_server.te    \
+	uncrypt.te          \
+	vold.te             \
+	apk_logfs.te        \
+	crashlogd.te        \
+	dhcp.te             \
+	fg_conf.te          \
+	fmd.te              \
+	bootanim.te         \
+	init_shell.te       \
+	install_recovery.te \
+	keystore.te         \
+	lbsd.te             \
+	logconfig.te        \
+	nvm.te              \
+	pekallfmrserver.te  \
+	rpc.te              \
+	service_contexts    \
+	servicemanager.te   \
+	setup_fs_nvm.te     \
+	ueventd.te          \
+	untrusted_app.te    \
+	wpa.te              \
+	zygote.te           \
+	rtl_wpa.te          \
+	esp_wpa.te          \
+	rftest.te
 
 # Recovery
 TARGET_NO_RECOVERY ?= false
@@ -169,7 +146,6 @@ BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE ?= ext4
 RECOVERY_UPDATEIMG_RSA_CHECK ?= false
 
 RECOVERY_BOARD_ID ?= false
-# RECOVERY_BOARD_ID ?= true
 
 # for widevine drm
 BOARD_WIDEVINE_OEMCRYPTO_LEVEL := 3
@@ -190,16 +166,6 @@ BOARD_HAVE_BLUETOOTH_BCM ?= false
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/rockchip/$(TARGET_PRODUCT)/bluetooth
 -include device/rockchip/$(TARGET_PRODUCT)/wifi_bt.mk
 include device/rockchip/common/wifi_bt_common.mk
-
-# google apps
-BUILD_WITH_GOOGLE_MARKET ?= false
-BUILD_WITH_GOOGLE_MARKET_ALL ?= false
-
-# face lock
-BUILD_WITH_FACELOCK ?= false
-
-# ebook
-BUILD_WITH_RK_EBOOK ?= false
 
 # Sensors
 BOARD_SENSOR_ST ?= true
