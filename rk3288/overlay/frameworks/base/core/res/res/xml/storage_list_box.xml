@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--$_FOR_ROCKCHIP_RBOX_$-->
 <!--
 **
 ** Copyright 2011, The Android Open Source Project
@@ -33,9 +32,6 @@
       A storage should not have both emulated and removable set to true
 -->
 
-<!--$_rbox_$_modify_$_huangyonglin_20121120-->
-<!--$_rbox_$_modify_$_begin-->
-
 <StorageList xmlns:android="http://schemas.android.com/apk/res/android">
     <storage android:mountPoint="/storage/sdcard0"
              android:storageDescription="@string/storage_sd_card"
@@ -57,41 +53,5 @@
              android:allowMassStorage="true"
              android:removable="true"
              android:mtpReserve="100" />   
-    <storage android:mountPoint="/mnt/usb_storage/USB_DISK0"
-             android:storageDescription="@string/storage_usb0"
-             android:primary="false"
-             android:allowMassStorage="true"
-             android:removable="true"
-             android:mtpReserve="100" />   
-    <storage android:mountPoint="/mnt/usb_storage/USB_DISK1"
-             android:storageDescription="@string/storage_usb1"
-             android:primary="false"
-             android:allowMassStorage="true"
-             android:removable="true"
-             android:mtpReserve="100" />    
-    <storage android:mountPoint="/mnt/usb_storage/USB_DISK2"
-             android:storageDescription="@string/storage_usb2"
-             android:primary="false"
-             android:allowMassStorage="true"
-             android:removable="true"
-             android:mtpReserve="100" />   
-    <storage android:mountPoint="/mnt/usb_storage/USB_DISK3"
-             android:storageDescription="@string/storage_usb3"
-             android:primary="false"
-             android:allowMassStorage="true"
-             android:removable="true"
-             android:mtpReserve="100" />   
-    <storage android:mountPoint="/mnt/usb_storage/USB_DISK4"
-             android:storageDescription="@string/storage_usb4"
-             android:primary="false"
-             android:allowMassStorage="true"
-             android:removable="true"
-             android:mtpReserve="100" />   
-    <storage android:mountPoint="/mnt/usb_storage/USB_DISK5"
-             android:storageDescription="@string/storage_usb5"
-             android:primary="false"
-             android:allowMassStorage="true"
-             android:removable="true"
-             android:mtpReserve="100" />                                                                                                                             
-<!--$_rbox_$_modify_$_end-->
+
     </StorageList>

@@ -121,11 +121,9 @@ PRODUCT_PACKAGES += \
  
 PRODUCT_SYSTEM_SERVER_JARS += \
     pppoe-service 
-#$_rbox_$_modify_$_chenzhi_20120309: add android.software.pppoe.xml
-PRODUCT_COPY_FILES += \
-       frameworks/native/data/etc/android.software.pppoe.xml:system/etc/permissions/android.software.pppoe.xml
-#$_rbox_$_modify_$_chenzhi_20120309
-    $(call inherit-product, external/rp-pppoe/pppoe-copy.mk)
+#FIXME: PRODUCT_COPY_FILES += \
+#FIXME:     frameworks/native/data/etc/android.software.pppoe.xml:system/etc/permissions/android.software.pppoe.xml
+#FIXME:     $(call inherit-product, external/rp-pppoe/pppoe-copy.mk)
 
 ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), box)
 include device/rockchip/common/samba/rk31_samba.mk
@@ -431,7 +429,7 @@ endif
 # Copy manifest to system/
 ifeq ($(strip $(SYSTEM_WITH_MANIFEST)),true)
 PRODUCT_COPY_FILES += \
-    manifest.xml:system/manifest.xml
+    .repo/manifest.xml:system/manifest.xml
 endif
 
 # Copy init.usbstorage.rc to root

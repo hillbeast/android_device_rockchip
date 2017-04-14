@@ -18,7 +18,7 @@
 -include vendor/rockchip/common/BoardConfigVendor.mk
 
 TARGET_NO_KERNEL ?= false
-TARGET_PREBUILT_KERNEL ?= kernel/arch/arm/boot/zImage
+TARGET_PREBUILT_KERNEL ?= device/rockchip/rk3288/kernel
 ifneq ($(TARGET_PRODUCT),rk3188)
  TARGET_PREBUILT_RESOURCE ?= kernel/resource.img
 endif
